@@ -129,7 +129,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--out", default="build")
     p.add_argument("--fuentes", default="assets/fuentes")
-    p.add_argument("--handle", default="@yourcoveragedesk")
+    p.add_argument("--handle", default="@tupolizaenclaro")
     p.add_argument("--pieza", help="Forzar una pieza por id (para pruebas)")
     args = p.parse_args()
 
