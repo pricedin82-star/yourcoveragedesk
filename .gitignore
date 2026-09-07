@@ -1,0 +1,7 @@
+.env
+build/
+build_reel/
+voces/
+__pycache__/
+*.pyc
+*.onnx
