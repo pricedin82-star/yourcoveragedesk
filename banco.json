@@ -1,0 +1,173 @@
+{
+  "_nota": "Banco de contenido. El robot toma la siguiente pieza no publicada, en orden. Para añadir más, copia un bloque y cámbiale el id. Los slides son texto grande: pocas palabras por slide.",
+  "piezas": [
+    {
+      "id": "p01-full-coverage",
+      "tema": "El mito de full coverage",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "\"Full coverage\"\nis not a coverage.", "sub": "It's a phrase. And it's why you think you have things you never bought.", "dato": "MYTH"},
+        {"titulo": "No policy\nsays it.", "sub": "Open your declarations page. The words are not there. Nobody at the carrier uses them either."},
+        {"titulo": "Coverages are\nsold separately.", "sub": "Liability. Comprehensive. Collision. Uninsured motorist. Rental. Each one is a line you either bought or you didn't.", "dato": "5+"},
+        {"titulo": "What people\nusually mean.", "sub": "Liability + comprehensive + collision. That's it. It leaves out rental, uninsured motorist and medical."},
+        {"titulo": "Go read\nyour dec page.", "sub": "If a coverage isn't listed with a limit next to it, you don't have it.", "dato": "→"}
+      ],
+      "caption": "\"Full coverage\" isn't a product. It's a phrase people use for liability + comprehensive + collision — and it leaves out the coverages that matter most when something goes wrong.\n\nPull up your declarations page. If a coverage isn't listed with a limit next to it, you don't have it.\n\nSave this for the next time someone tells you they're \"fully covered.\"\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#autoinsurance", "#insurance101", "#carinsurance", "#insuranceclaims", "#policyholder"]
+    },
+    {
+      "id": "p02-deducible",
+      "tema": "Nadie elige un deducible, elige un precio",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "Nobody chooses\na deductible.", "sub": "They choose a lower price. The deductible is what they gave up in exchange.", "dato": "$?"},
+        {"titulo": "That's the\nwhole trade.", "sub": "Higher deductible, lower premium. You saved a little every month and agreed to pay a lot on one bad day."},
+        {"titulo": "$500 vs $2,000", "sub": "The savings look small each month. The gap shows up all at once, when you can least plan for it.", "dato": "4x"},
+        {"titulo": "It only touches\nyour own car.", "sub": "Comprehensive and collision. Liability has no deductible at all."},
+        {"titulo": "Know your\nnumber.", "sub": "If you can't say your deductible from memory, you didn't choose it. You accepted it.", "dato": "→"}
+      ],
+      "caption": "Most people don't pick a deductible. They pick a cheaper premium, and the deductible is what they traded away for it.\n\nIt only applies to damage to your own car — comprehensive and collision. Liability has no deductible.\n\nDo you know yours without looking?\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#deductible", "#autoinsurance", "#carinsurance", "#insurance101", "#insuranceclaims"]
+    },
+    {
+      "id": "p03-turo",
+      "tema": "Listar el carro en apps de alquiler",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "You listed\nyour car for rent.", "sub": "Your personal policy may have stopped covering it the moment you did.", "dato": "⚠"},
+        {"titulo": "Two exclusions,\nnot one.", "sub": "Renting your vehicle to others is excluded. So is any paid use of your car. Most policies carry both."},
+        {"titulo": "The platform's\nplan is not your policy.", "sub": "It covers what its terms say it covers, for as long as the rental period runs. Nothing before, nothing after."},
+        {"titulo": "Read which plan\nyou picked.", "sub": "On the highest-earning tier, the owner absorbs physical damage to their own vehicle.", "dato": "$0"},
+        {"titulo": "Ask before\nyou list.", "sub": "Call your carrier and ask what happens if a renter crashes your car. Get the answer before you need it.", "dato": "→"}
+      ],
+      "caption": "Renting out your own car on a car-sharing app can put you outside your personal auto policy — most contain an exclusion for vehicles rented to others, and another for any paid use.\n\nThe platform's own plan only covers what its terms say, during the rental. And on the highest-earning tier, the owner can absorb the damage.\n\nAsk your carrier before you list, not after.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#carsharing", "#autoinsurance", "#insurance101", "#sidehustle", "#carinsurance"]
+    },
+    {
+      "id": "p04-delivery",
+      "tema": "La app de reparto y el periodo 1",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "You turned\nthe app on.", "sub": "Your personal policy may have stopped covering you right then.", "dato": "⚠"},
+        {"titulo": "Three periods.", "sub": "App on, waiting. Heading to pick up. Passenger or order in the car. They are not covered the same way."},
+        {"titulo": "Period 1 is\nthe hole.", "sub": "App on, no job assigned. Personal policy often excludes it. Platform coverage is at its thinnest.", "dato": "1"},
+        {"titulo": "There is\nan endorsement.", "sub": "Most carriers sell a rideshare or delivery add-on. It usually costs a few dollars a month."},
+        {"titulo": "Ask for it\nby name.", "sub": "Tell your agent you drive for an app and ask what covers you in period one.", "dato": "→"}
+      ],
+      "caption": "Driving for a delivery or rideshare app splits your day into three periods, and they are not covered the same way.\n\nPeriod 1 — app on, no job assigned — is where personal policies commonly exclude and platform coverage is thinnest.\n\nMost carriers sell an endorsement that closes it, usually for a few dollars a month. Ask for it by name.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#rideshare", "#delivery", "#autoinsurance", "#gigeconomy", "#insurance101"]
+    },
+    {
+      "id": "p05-deducible-liability",
+      "tema": "El deducible no aplica a liability",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "At fault?\nYou don't pay\na deductible.", "sub": "Not for the other driver's car. That's not how liability works.", "dato": "$0"},
+        {"titulo": "Deductibles live\non your car only.", "sub": "Comprehensive and collision. Those are the coverages that repair your vehicle."},
+        {"titulo": "Liability pays\nthe other side.", "sub": "Their car, their injuries. No deductible, up to your limit."},
+        {"titulo": "Two different\njobs.", "sub": "One coverage protects your car. The other protects everyone else from you.", "dato": "2"},
+        {"titulo": "That's the\nwhole structure.", "sub": "Once you see it, the rest of the policy stops being confusing.", "dato": "→"}
+      ],
+      "caption": "If you cause a crash, you don't pay a deductible for the other driver's car. Liability coverage has no deductible.\n\nDeductibles only exist on the coverages that repair your own vehicle — comprehensive and collision.\n\nOne coverage protects your car. The other protects everyone else from you. That's the whole structure.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#autoinsurance", "#liability", "#insurance101", "#carinsurance", "#insuranceclaims"]
+    },
+    {
+      "id": "p06-simbolos",
+      "tema": "Símbolos de autos cubiertos en póliza comercial",
+      "badge": "COMMERCIAL",
+      "slides": [
+        {"titulo": "One digit decides\nwhich vehicles\nare covered.", "sub": "It's on every commercial auto policy. Most owners have never looked at it.", "dato": "1–9"},
+        {"titulo": "Symbol 1\n= any auto.", "sub": "The broadest. Owned, hired, borrowed — all of it."},
+        {"titulo": "Symbol 7\n= only what's listed.", "sub": "If a vehicle isn't on the schedule, it isn't covered. Buy a truck and forget to add it, and you have nothing.", "dato": "7"},
+        {"titulo": "Symbols 8 and 9.", "sub": "Hired autos. Non-owned autos — like your employee's own car, on your errand."},
+        {"titulo": "Go look at\nyour dec page.", "sub": "The symbols sit next to each coverage. They decide everything else on the page.", "dato": "→"}
+      ],
+      "caption": "Every commercial auto policy has a single digit that decides which vehicles the policy even applies to. Symbol 1 is any auto. Symbol 7 is only the vehicles listed on the schedule. Symbols 8 and 9 cover hired and non-owned autos.\n\nA business on symbol 7 that sends an employee out in their own car has a gap it doesn't know about.\n\nCheck the symbols on your declarations page.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#commercialauto", "#smallbusiness", "#insurance101", "#riskmanagement", "#businessowner"]
+    },
+    {
+      "id": "p07-comp-collision",
+      "tema": "Comprehensive vs collision",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "A deer is\ncomprehensive.\nA tree is collision.", "sub": "Same car. Same damage. Two different coverages.", "dato": "2"},
+        {"titulo": "Collision\n= impact.", "sub": "You hit something, or something hits you. Applies even when the fault is yours."},
+        {"titulo": "Comprehensive\n= everything else.", "sub": "Theft. Hail. Fire. Flood. Vandalism. Glass. Animals."},
+        {"titulo": "Each has its own\ndeductible.", "sub": "They're separate coverages, priced separately, and you can carry one without the other.", "dato": "$"},
+        {"titulo": "Which one\ndo you have?", "sub": "Check your dec page. They're listed on separate lines, with separate numbers.", "dato": "→"}
+      ],
+      "caption": "Hit a deer, that's comprehensive. Hit a tree, that's collision. Same car, same damage, two different coverages with two different deductibles.\n\nCollision is impact. Comprehensive is everything else that happens to your car — theft, hail, fire, flood, vandalism, glass, animals.\n\nThey're separate lines on your policy. You can carry one without the other.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#comprehensive", "#collision", "#autoinsurance", "#insurance101", "#carinsurance"]
+    },
+    {
+      "id": "p08-limites",
+      "tema": "25/50/25 y el tercer número",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "25 / 50 / 25", "sub": "Three numbers on your card that decide everything. The third one is the one that ruins people.", "dato": "3"},
+        {"titulo": "First: per person.", "sub": "The most the policy pays for any one injured person."},
+        {"titulo": "Second: per accident.", "sub": "The most it pays for everyone injured, in total. Two people hurt, and it splits."},
+        {"titulo": "Third: property.", "sub": "The other driver's car. A modern vehicle can pass that number without trying.", "dato": "25K"},
+        {"titulo": "Above the limit,\nit's you.", "sub": "The policy stops at its number. The rest doesn't disappear — it just isn't the carrier's anymore.", "dato": "→"}
+      ],
+      "caption": "25/50/25 means $25,000 per injured person, $50,000 per accident, $25,000 for the other party's property.\n\nThe third number is the one that catches people. A modern vehicle can exceed $25,000 without much effort — and above the limit, the difference is yours.\n\nCheck your three numbers. Most people have never looked.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#autoinsurance", "#liability", "#insurance101", "#carinsurance", "#coverage"]
+    },
+    {
+      "id": "p09-pip-medpay",
+      "tema": "PIP vs Med Pay",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "PIP pays\nno matter\nwhose fault it was.", "sub": "So does Med Pay. They are not the same thing.", "dato": "PIP"},
+        {"titulo": "PIP is broader.", "sub": "Medical bills, and often lost wages and some services while you recover."},
+        {"titulo": "Med Pay is\nnarrower.", "sub": "Medical bills only. Usually a smaller limit."},
+        {"titulo": "Your state\ndecides.", "sub": "Some require PIP. Some offer Med Pay as an option. Some have neither.", "dato": "50"},
+        {"titulo": "Check which\nyou have.", "sub": "It's on your dec page, and it's the coverage that pays first after a crash.", "dato": "→"}
+      ],
+      "caption": "PIP and Med Pay both pay regardless of who caused the crash — but they're not the same coverage.\n\nPIP is broader: medical bills plus, often, lost wages. Med Pay is medical bills only, usually with a smaller limit.\n\nWhich one you can even buy depends on your state. Check your declarations page.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#pip", "#autoinsurance", "#insurance101", "#carinsurance", "#insuranceclaims"]
+    },
+    {
+      "id": "p10-rental",
+      "tema": "Rental reimbursement vs loss of use",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "Rental reimbursement\nand loss of use\nare not the same.", "sub": "Buying the wrong one is why people end up paying for the rental car themselves.", "dato": "2"},
+        {"titulo": "Rental reimbursement\nis yours.", "sub": "A coverage you bought on your own policy. It has a daily cap and a total cap."},
+        {"titulo": "Loss of use\nis theirs.", "sub": "What the at-fault driver's carrier owes you while your car is being repaired."},
+        {"titulo": "$30/day,\n$900 max.", "sub": "Typical caps. If the shop takes six weeks and the rental costs more per day, the gap is yours.", "dato": "$30"},
+        {"titulo": "Know which one\napplies.", "sub": "It depends on who caused the crash. Ask before you drive off the rental lot.", "dato": "→"}
+      ],
+      "caption": "Rental reimbursement is a coverage you buy on your own policy, with a daily cap and a total cap. Loss of use is what the at-fault driver's carrier owes you while your car is in the shop.\n\nDifferent things, different payers. Which one applies depends on who caused the crash.\n\nAsk before you drive off the rental lot.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#rentalcar", "#autoinsurance", "#insurance101", "#insuranceclaims", "#carinsurance"]
+    },
+    {
+      "id": "p11-um-uim",
+      "tema": "UM/UIM",
+      "badge": "COVERAGE 101",
+      "slides": [
+        {"titulo": "The coverage\nthat pays when\nthey have nothing.", "sub": "Uninsured and underinsured motorist. It's the first one people drop to save money.", "dato": "UM"},
+        {"titulo": "Uninsured:\nno policy at all.", "sub": "They hit you and there's nothing behind them."},
+        {"titulo": "Underinsured:\nnot enough.", "sub": "They carry the state minimum. Your bills are larger than their limit."},
+        {"titulo": "This is\nthe common one.", "sub": "Plenty of drivers carry exactly the minimum their state requires. Nothing more.", "dato": "MIN"},
+        {"titulo": "Look before\nyou cut it.", "sub": "It's the cheapest line on many policies, and the one that covers what you can't control.", "dato": "→"}
+      ],
+      "caption": "Uninsured motorist pays when the driver who hit you has no policy. Underinsured pays when they have one, but their limit is smaller than your bills.\n\nPlenty of drivers carry exactly the state minimum and nothing more. That's what UM/UIM is for.\n\nIt's often one of the cheapest lines on the policy — and the first one people cut.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#uninsuredmotorist", "#autoinsurance", "#insurance101", "#carinsurance", "#coverage"]
+    },
+    {
+      "id": "p12-adjuster",
+      "tema": "Qué hace un adjuster",
+      "badge": "THE DESK",
+      "slides": [
+        {"titulo": "Someone decides\nwhat your policy\npays.", "sub": "That job is called a claims adjuster. Most people have never heard of it.", "dato": "?"},
+        {"titulo": "The job is\nthe coverage.", "sub": "Reading the policy, applying it to what happened, and putting a number on it."},
+        {"titulo": "Everything\non this account.", "sub": "Every post here is the knowledge the job runs on. That's not a coincidence."},
+        {"titulo": "It's a career\nwith a door.", "sub": "A license, some training, and a first assignment. No degree required in most states.", "dato": "→"},
+        {"titulo": "Curious?", "sub": "The path is in the link in bio.", "dato": "↗"}
+      ],
+      "caption": "After almost every crash in America, someone reads the policy and decides what it pays. That job is a claims adjuster.\n\nThe job is coverage knowledge — which is what every post on this account is.\n\nIf the work sounds interesting, the path to it is in the link in bio.\n\nEducational only. Not legal or insurance advice.",
+      "hashtags": ["#claimsadjuster", "#insurancecareers", "#careerchange", "#insurance101", "#adjusterlife"]
+    }
+  ]
+}
