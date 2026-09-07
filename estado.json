@@ -1,9 +1,4 @@
 {
-  "publicadas": [
-    "p01-full-coverage",
-    "p02-deducible"
-  ],
-  "publicadas_reel": [
-    "p12-adjuster"
-  ]
+  "publicadas": [],
+  "publicadas_reel": []
 }
