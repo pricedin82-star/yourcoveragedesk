@@ -1,0 +1,11 @@
+{
+  "id": "p01-full-coverage",
+  "tema": "El mito de full coverage",
+  "slides": [
+    "build/slide_01.jpg",
+    "build/slide_02.jpg",
+    "build/slide_03.jpg",
+    "build/slide_04.jpg",
+    "build/slide_05.jpg"
+  ]
+}
