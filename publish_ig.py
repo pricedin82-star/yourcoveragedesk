@@ -58,9 +58,10 @@ def http(url, data=None, intentos=4):
     raise SystemExit("Sin intentos restantes")
 
 
-def esperar_listo(creation_id, token, etiqueta):
-    """Publicar antes de FINISHED falla con un error confuso. Sondear es obligatorio."""
-    for intento in range(40):
+def esperar_listo(creation_id, token, etiqueta, intentos=40):
+    """Publicar antes de FINISHED falla con un error confuso. Sondear es obligatorio.
+    El video tarda mucho más que las imágenes: por eso el número de intentos sube."""
+    for intento in range(intentos):
         q = urllib.parse.urlencode({"fields": "status_code,status", "access_token": token})
         est = http(f"{BASE}/{creation_id}?{q}")
         code = est.get("status_code")
@@ -69,7 +70,7 @@ def esperar_listo(creation_id, token, etiqueta):
         if code == "ERROR":
             raise SystemExit(f"Instagram rechazó {etiqueta}: {est.get('status')}")
         time.sleep(5 if intento < 12 else 10)
-    raise SystemExit(f"{etiqueta} no terminó de procesarse en ~6 min.")
+    raise SystemExit(f"{etiqueta} no terminó de procesarse a tiempo.")
 
 
 def publicar_carrusel(urls, caption):
@@ -106,6 +107,33 @@ def publicar_carrusel(urls, caption):
     return pub.get("id", "")
 
 
+def publicar_reel(video_url, caption, portada_url=None):
+    """Un Reel es un solo contenedor con media_type=REELS. El procesado del video
+    tarda bastante más que una imagen, de ahí la espera más larga."""
+    ig, token = env("IG_USER_ID"), env("META_ACCESS_TOKEN")
+    datos = {
+        "media_type": "REELS",
+        "video_url": video_url,
+        "caption": caption,
+        "share_to_feed": "true",
+        "access_token": token,
+    }
+    if portada_url:
+        datos["cover_url"] = portada_url
+
+    r = http(f"{BASE}/{ig}/media", datos)
+    contenedor = r["id"]
+    print(f"  contenedor {contenedor}; Instagram está procesando el video")
+    esperar_listo(contenedor, token, "el Reel", intentos=90)
+
+    pub = http(f"{BASE}/{ig}/media_publish", {
+        "creation_id": contenedor,
+        "access_token": token,
+    })
+    print(f"\nPUBLICADO — id {pub.get('id')}")
+    return pub.get("id", "")
+
+
 def refrescar_token():
     """Los tokens duran 60 días. Sin esto, el sistema muere en silencio a los dos
     meses. Falla en rojo a propósito para que GitHub avise."""
@@ -126,14 +154,16 @@ def refrescar_token():
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--urls", nargs="+", help="URLs públicas de los slides, en orden")
+    p.add_argument("--reel", help="URL pública del mp4 del Reel")
+    p.add_argument("--portada", help="URL pública de la portada del Reel (opcional)")
     p.add_argument("--caption-file", default="build/caption.txt")
     p.add_argument("--refrescar-token", action="store_true")
     args = p.parse_args()
 
     if args.refrescar_token:
         return refrescar_token()
-    if not args.urls:
-        p.error("indica --urls o --refrescar-token")
+    if not args.urls and not args.reel:
+        p.error("indica --urls (carrusel), --reel (video) o --refrescar-token")
 
     caption = ""
     if os.path.exists(args.caption_file):
@@ -142,7 +172,10 @@ def main():
         print("AVISO: caption recortado a 2200 caracteres.", file=sys.stderr)
         caption = caption[:2200]
 
-    publicar_carrusel(args.urls, caption)
+    if args.reel:
+        publicar_reel(args.reel, caption, args.portada)
+    else:
+        publicar_carrusel(args.urls, caption)
     return 0
 
 
