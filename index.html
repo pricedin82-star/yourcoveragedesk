@@ -1,59 +1,120 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Home · Your Coverage Desk</title>
+<title>Your Coverage Desk</title>
+<meta name="description" content="What your auto policy actually covers — explained by a licensed claims adjuster.">
 <style>
-:root{--paper:#FAF7F0;--text:#1C1B16;--text2:#57544A;--amber:#B87A00;--rule:#DED8C8;--asf:#14140F}
-@media(prefers-color-scheme:dark){:root{--paper:#121210;--text:#F0ECE0;--text2:#B0AB99;--amber:#F2A900;--rule:#33322A}}
+:root{
+  --asf:#14140F; --card:#1C1C17; --card2:#232320;
+  --amber:#F2A900; --white:#F5F2EA; --muted:#9B968A; --rule:#33322A;
+  --slate:#2D5F7C;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.w{max-width:44rem;margin:0 auto;padding:2rem 1.25rem 4rem}
-header{border-bottom:1px solid var(--rule);margin-bottom:2rem;padding-bottom:1.2rem}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:inherit}
-.logo{width:34px;height:34px;background:var(--asf);border-radius:6px;position:relative;flex:none}
-.logo i{position:absolute;left:16%;height:9%;border-radius:99px;background:#5D5A4E}
-.logo i:nth-child(1){top:29%;width:52%}
-.logo i:nth-child(2){top:45%;width:70%;background:#F2A900}
-.logo i:nth-child(3){top:61%;width:38%}
-.brand b{font-size:1.02rem;letter-spacing:-.01em}
-nav{margin-top:.9rem;font-size:.9rem}
-nav a{color:var(--amber);margin-right:1.1rem}
-h1{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 .4rem}
-h2{font-size:1.08rem;margin:1.9rem 0 .5rem}
-p,li{color:var(--text2)}
-p{margin:0 0 .9rem}
-ul{padding-left:1.2rem}
-.upd{font-size:.85rem;color:var(--text2);margin-bottom:1.8rem}
-footer{border-top:1px solid var(--rule);margin-top:3rem;padding-top:1.2rem;font-size:.85rem;color:var(--text2)}
-a{color:var(--amber)}
-</style></head><body><div class="w">
-<header>
-<a class="brand" href="./"><span class="logo"><i></i><i></i><i></i></span><b>Your Coverage Desk</b></a>
-<nav><a href="./">Home</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></nav>
-</header>
+html,body{margin:0}
+body{
+  background:var(--asf); color:var(--white);
+  font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center;
+  padding:2.4rem 1.15rem 3rem;
+}
+.wrap{width:100%; max-width:30rem; display:flex; flex-direction:column; align-items:center}
 
-<h1>Your Coverage Desk</h1>
-<p class="upd">Educational content about how U.S. auto insurance coverage actually works.</p>
-<p><strong>You bought a price, not a policy.</strong> Most drivers pick a premium, not a set of coverages — and they find out the difference at the worst possible moment.</p>
-<p>Your Coverage Desk explains what each line of an auto policy actually means, in plain English, from the perspective of a licensed claims adjuster: bodily injury and property damage liability, PIP and medical payments, comprehensive and collision, deductibles, rental reimbursement, uninsured and underinsured motorist coverage, and how commercial auto differs from personal auto.</p>
+/* --- identidad --- */
+.mark{width:76px;height:76px;background:#0F0F0C;border-radius:16px;position:relative;flex:none;margin-bottom:1.1rem}
+.mark i{position:absolute;left:16%;height:9%;border-radius:99px;background:#5D5A4E}
+.mark i:nth-child(1){top:29%;width:52%}
+.mark i:nth-child(2){top:45%;width:70%;background:var(--amber)}
+.mark i:nth-child(3){top:61%;width:38%}
+h1{font-size:1.32rem;font-weight:700;letter-spacing:-.015em;margin:0 0 .35rem;text-align:center}
+.handle{font-size:.9rem;color:var(--muted);margin:0 0 1rem;letter-spacing:.02em}
+.thesis{
+  font-size:1.02rem;color:var(--white);text-align:center;margin:0 0 .5rem;
+  font-weight:600;line-height:1.4;
+}
+.thesis em{font-style:normal;color:var(--amber)}
+.sub{font-size:.94rem;color:var(--muted);text-align:center;margin:0 0 2rem;max-width:26rem}
 
-<h2>What this site is</h2>
-<p>This site is the home of an educational publishing project. Short videos and written explainers are published to Instagram, TikTok and Facebook under the name Your Coverage Desk, and to an email newsletter.</p>
+/* --- destinos --- */
+.links{width:100%;display:flex;flex-direction:column;gap:.85rem}
+.card{
+  display:block;text-decoration:none;color:inherit;
+  background:var(--card);border:1px solid var(--rule);border-radius:14px;
+  padding:1.15rem 1.2rem;
+  transition:border-color .15s ease, background .15s ease;
+}
+.card:hover,.card:focus-visible{border-color:var(--amber);background:var(--card2);outline:none}
+.card.primary{border-color:var(--amber);background:linear-gradient(180deg,#26200F,#1C1A13)}
+.tag{
+  display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--amber);margin-bottom:.5rem;
+}
+.card.primary .tag{color:var(--amber)}
+.t{font-size:1.06rem;font-weight:700;margin:0 0 .3rem;line-height:1.3}
+.d{font-size:.9rem;color:var(--muted);margin:0;line-height:1.45}
+.row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.arrow{color:var(--amber);font-size:1.3rem;line-height:1;flex:none}
 
-<h2>What this is not</h2>
-<ul>
-<li>It is not legal advice or insurance advice.</li>
-<li>It does not sell, quote, place or broker insurance of any kind.</li>
-<li>It does not represent claimants, adjust claims for the public, or give guidance on any specific claim.</li>
-<li>It is not affiliated with, endorsed by, or speaking for any insurance carrier or employer.</li>
-</ul>
-<p>Coverage terms vary by policy, endorsement, carrier and state. Read your own policy and talk to your agent or carrier about your specific situation.</p>
+/* --- pie --- */
+.disc{
+  margin-top:2.4rem;padding-top:1.3rem;border-top:1px solid var(--rule);
+  font-size:.78rem;color:var(--muted);text-align:center;max-width:26rem;line-height:1.5;
+}
+.disc a{color:var(--muted)}
+.disc .strong{color:#B8B2A2}
+</style></head>
+<body>
+<div class="wrap">
 
-<h2>Automated publishing</h2>
-<p>Content for this project is produced and scheduled with software operated solely by the site owner, publishing only the owner's own original content to the owner's own accounts. No third party can sign in to it and no other person's account is accessed.</p>
-<footer>
-Your Coverage Desk publishes educational content about U.S. auto insurance coverage.
-Educational only. Not legal or insurance advice. Views are my own and not those of any employer.
-<br>Contact: <a href="mailto:pricedin82@gmail.com">pricedin82@gmail.com</a>
-</footer>
-</div></body></html>
+  <div class="mark"><i></i><i></i><i></i></div>
+  <h1>Your Coverage Desk</h1>
+  <p class="handle">@yourcoveragedesk</p>
+
+  <p class="thesis">You bought a price, <em>not a policy</em>.</p>
+  <p class="sub">What each line of your auto policy actually means — from a licensed claims adjuster.</p>
+
+  <div class="links">
+
+    <!-- REEMPLAZA el href por la dirección de tu lista de correo -->
+    <a class="card primary" href="REEMPLAZAR_CON_TU_LISTA">
+      <span class="tag">Free</span>
+      <div class="row">
+        <div>
+          <p class="t">The Coverage Decoder</p>
+          <p class="d">Your declarations page, line by line, in plain English. Personal and commercial. Free when you join the list.</p>
+        </div>
+        <span class="arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.instagram.com/yourcoveragedesk/">
+      <div class="row">
+        <div>
+          <p class="t">Latest on Instagram</p>
+          <p class="d">A coverage explained every weekday.</p>
+        </div>
+        <span class="arrow">→</span>
+      </div>
+    </a>
+
+    <a class="card" href="./about.html">
+      <div class="row">
+        <div>
+          <p class="t">What this is</p>
+          <p class="d">Who writes it, and what it isn't.</p>
+        </div>
+        <span class="arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <p class="disc">
+    <span class="strong">Educational only. Not legal or insurance advice.</span><br>
+    Coverage varies by policy, endorsement, carrier and state. Read your own policy and talk to your agent or carrier about your situation. Views are my own and not those of any employer.<br><br>
+    <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a>
+  </p>
+
+</div>
+</body></html>
