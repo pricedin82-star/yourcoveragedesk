@@ -91,7 +91,8 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           # SOLO el archivo de estado. Nunca -A: se llevaría el modelo de voz
           # (115 MB) y los archivos de build, y GitHub rechaza el push.
-          git add estado.json contenido/estado.json 2>/dev/null || true
+          git add estado.json 2>/dev/null || true
+          git add contenido/estado.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "carrusel ${{ steps.build.outputs.id }}"
           git push
@@ -176,7 +177,8 @@ jobs:
           git config user.name "coverage-desk-bot"
           git config user.email "bot@users.noreply.github.com"
           # SOLO el archivo de estado. Nunca -A.
-          git add estado.json contenido/estado.json 2>/dev/null || true
+          git add estado.json 2>/dev/null || true
+          git add contenido/estado.json 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -m "reel ${{ steps.build.outputs.id }}"
           git push
