@@ -9,9 +9,13 @@ GitHub. Tú no tienes que abrir nada.
 
 ### 1. Sube este repositorio a GitHub
 
-Crea un repositorio **privado** llamado `yourcoveragedesk` y sube todos estos
-archivos. Privado es a propósito: aquí no hay secretos, pero tampoco hace falta
-que nadie vea el banco de contenido antes que tu audiencia.
+Crea un repositorio **público** llamado yourcoveragedesk y sube todos estos
+archivos. Público no es una preferencia, es obligatorio: Instagram descarga las
+imágenes desde las Releases del repositorio sin autenticarse, y en un repositorio
+privado no puede. Por eso aquí nunca va un secreto dentro de un archivo — los dos
+secretos viven en Settings → Secrets, que siguen siendo privados aunque el repo
+sea público. Y por la misma razón: todo lo que se imprima en un registro de
+Actions lo puede leer cualquiera.
 
 ### 2. Pega los dos secretos
 
@@ -80,12 +84,17 @@ inventa contenido. Añade piezas y sigue solo.
 
 ## Mantenimiento: lo único que tienes que vigilar
 
-**El token caduca cada 60 días.** Los lunes el robot lo renueva solo y te
-imprime el nuevo en el registro del job. Cuando eso pase:
+**El token caduca cada 60 días.** Los lunes el robot llama a la API de refresco
+y te dice cuántos días quedan, pero **no puede guardar el token nuevo**: un
+workflow no tiene permiso para escribir en los secretos del repositorio, y el
+script solo imprime los primeros caracteres a propósito, porque el registro de
+un repositorio público lo puede leer cualquiera.
 
-1. Entra al job **refrescar-token** en Actions.
-2. Copia el token nuevo del registro.
-3. Actualiza el secreto `META_ACCESS_TOKEN`.
+Así que la renovación es a mano, y hay que hacerla antes de que caduque:
+
+1. Genera un token nuevo en el panel de Meta, igual que en el paso 6 del arranque.
+2. Pégalo en **Settings → Secrets and variables → Actions → META_ACCESS_TOKEN**.
+3. Apúntalo en el calendario: toca otra vez unos 60 días después.
 
 Si ese job sale en rojo, **atiéndelo ese mismo día**. Es el fallo que mata estos
 sistemas en silencio: dejan de publicar y nadie se entera hasta semanas después.
