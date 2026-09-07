@@ -141,7 +141,7 @@ def main():
     p.add_argument("--out", default="build_reel")
     p.add_argument("--voz", required=True)
     p.add_argument("--fuentes", default="assets/fuentes")
-    p.add_argument("--handle", default="@yourcoveragedesk")
+    p.add_argument("--handle", default="@tupolizaenclaro")
     p.add_argument("--pieza")
     args = p.parse_args()
 
