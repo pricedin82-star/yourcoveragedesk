@@ -1,0 +1,113 @@
+# Your Coverage Desk — publica un carrusel en Instagram cada día laborable.
+# Adaptado a la estructura plana del repositorio (archivos en la raíz).
+
+name: Publicar carrusel
+
+on:
+  schedule:
+    # 11:23 hora del Este. El minuto en punto es el más congestionado en
+    # GitHub Actions y el job llega tarde; por eso :23.
+    - cron: "23 15 * * 1-5"
+    # Lunes: refrescar el token antes de que caduque.
+    - cron: "41 13 * * 1"
+  workflow_dispatch:
+    inputs:
+      pieza:
+        description: "id de una pieza concreta (opcional, para probar)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    if: github.event.schedule != '41 13 * * 1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Pillow
+        run: pip install --quiet Pillow
+
+      # Falla pronto y con un mensaje útil, en vez de a mitad de la publicación.
+      - name: Verificar configuración
+        run: python check_setup.py
+
+      - name: Dibujar los slides
+        id: build
+        run: |
+          if [ -n "${{ inputs.pieza }}" ]; then
+            python build_carrusel.py --out build --pieza "${{ inputs.pieza }}"
+          else
+            python build_carrusel.py --out build
+          fi
+          echo "id=$(python -c "import json;print(json.load(open('build/pieza.json'))['id'])")" >> $GITHUB_OUTPUT
+
+      # Instagram exige que las imágenes estén en una URL pública que pueda
+      # descargar sin iniciar sesión. Una Release de un repositorio público
+      # sirve, es gratis y no necesita otro servicio.
+      - name: Subir los slides a una Release
+        id: release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="post-$(date +%Y%m%d-%H%M)"
+          gh release create "$TAG" build/slide_*.jpg --title "$TAG" --notes "slides del carrusel"
+          URLS=""
+          for f in $(ls build/slide_*.jpg | sort); do
+            URLS="$URLS https://github.com/${{ github.repository }}/releases/download/$TAG/$(basename $f)"
+          done
+          echo "urls=$URLS" >> $GITHUB_OUTPUT
+
+      - name: Publicar en Instagram
+        run: |
+          python publish_ig.py \
+            --urls ${{ steps.release.outputs.urls }} \
+            --caption-file build/caption.txt
+
+      # Solo se marca como publicada si el paso anterior salió bien.
+      - name: Marcar la pieza como publicada
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("contenido/estado.json")
+          if not p.exists():
+              p = pathlib.Path("estado.json")
+          e = json.loads(p.read_text())
+          pid = json.load(open("build/pieza.json"))["id"]
+          if pid not in e["publicadas"]:
+              e["publicadas"].append(pid)
+          p.write_text(json.dumps(e, indent=2) + "\n")
+          print("marcada:", pid, "en", p)
+          PY
+          git config user.name "coverage-desk-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A estado.json contenido/estado.json 2>/dev/null || git add -A
+          git commit -m "publicado ${{ steps.build.outputs.id }}" || exit 0
+          git push
+
+  refrescar-token:
+    # Sin esto el pipeline muere en silencio a los ~60 días, cuando caduca el
+    # token. Falla en rojo a propósito para que llegue el aviso por correo.
+    if: github.event.schedule == '41 13 * * 1'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python publish_ig.py --refrescar-token
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
