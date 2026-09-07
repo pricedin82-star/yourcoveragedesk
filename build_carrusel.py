@@ -15,6 +15,19 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
+
+def buscar(*candidatos):
+    """Encuentra un archivo tanto si el repo tiene carpetas como si está plano.
+
+    GitHub aplana la estructura cuando se arrastran carpetas al navegador, así
+    que el mismo código funciona en los dos casos sin tocar nada.
+    """
+    from pathlib import Path as _P
+    for c in candidatos:
+        if _P(c).exists():
+            return str(c)
+    return str(candidatos[-1])
+
 W, H = 1080, 1350
 ASF = (20, 20, 15)
 AMBER = (242, 169, 0)
@@ -120,8 +133,8 @@ def main():
     p.add_argument("--pieza", help="Forzar una pieza por id (para pruebas)")
     args = p.parse_args()
 
-    banco = json.loads(Path("contenido/banco.json").read_text())["piezas"]
-    estado = json.loads(Path("contenido/estado.json").read_text())
+    banco = json.loads(Path(buscar("contenido/banco.json", "banco.json")).read_text())["piezas"]
+    estado = json.loads(Path(buscar("contenido/estado.json", "estado.json")).read_text())
     hechas = set(estado.get("publicadas", []))
 
     if args.pieza:
@@ -133,12 +146,15 @@ def main():
         if not pieza:
             raise SystemExit("BANCO_VACIO: no quedan piezas sin publicar. Añade más a banco.json.")
 
-    fd = Path(args.fuentes)
+    fd = args.fuentes
+    anton = buscar(f"{fd}/Anton-Regular.ttf", "Anton-Regular.ttf")
+    dvs = buscar(f"{fd}/DejaVuSans.ttf", "DejaVuSans.ttf")
+    dvb = buscar(f"{fd}/DejaVuSans-Bold.ttf", "DejaVuSans-Bold.ttf")
     fuentes = (
-        cargar_fuente(str(fd / "Anton-Regular.ttf"), 80),
-        cargar_fuente(str(fd / "DejaVuSans.ttf"), 34),
-        cargar_fuente(str(fd / "DejaVuSans-Bold.ttf"), 22),
-        cargar_fuente(str(fd / "Anton-Regular.ttf"), 46),
+        cargar_fuente(anton, 80),
+        cargar_fuente(dvs, 34),
+        cargar_fuente(dvb, 22),
+        cargar_fuente(anton, 46),
     )
 
     out = Path(args.out)

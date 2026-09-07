@@ -17,6 +17,20 @@ import urllib.request
 IG = "https://graph.instagram.com/v23.0"
 
 
+def buscar(*candidatos):
+    """Encuentra un archivo tanto si el repo tiene carpetas como si está plano.
+
+    GitHub aplana la estructura cuando se arrastran carpetas al navegador, así
+    que el mismo código funciona en los dos casos sin tocar nada.
+    """
+    from pathlib import Path as _P
+    for c in candidatos:
+        if _P(c).exists():
+            return str(c)
+    return str(candidatos[-1])
+
+
+
 def get(url, headers=None):
     req = urllib.request.Request(url, headers=headers or {})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -73,8 +87,8 @@ def main():
 
     # Banco de contenido
     def banco():
-        b = json.load(open("contenido/banco.json"))["piezas"]
-        e = json.load(open("contenido/estado.json")).get("publicadas", [])
+        b = json.load(open(buscar("contenido/banco.json", "banco.json")))["piezas"]
+        e = json.load(open(buscar("contenido/estado.json", "estado.json"))).get("publicadas", [])
         quedan = [p for p in b if p["id"] not in e]
         if not quedan:
             raise RuntimeError("no quedan piezas sin publicar; añade más a banco.json")
