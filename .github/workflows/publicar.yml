@@ -121,12 +121,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: voces
-          key: piper-en_US-ryan-high-v1
+          key: piper-es_MX-claude-high-v1
       - name: Descargar la voz
         if: steps.cache-voz.outputs.cache-hit != 'true'
         run: |
           mkdir -p voces
-          python -m piper.download_voices en_US-ryan-high --download-dir voces
+          python -m piper.download_voices es_MX-claude-high --download-dir voces
           ls -la voces
 
       - name: Verificar configuración
