@@ -1,173 +1,173 @@
 {
-  "_nota": "Banco de contenido. El robot toma la siguiente pieza no publicada, en orden. Para añadir más, copia un bloque y cámbiale el id. Los slides son texto grande: pocas palabras por slide.",
+  "_nota": "Banco de contenido. El robot toma la siguiente pieza no publicada, en orden. Los carruseles van de p01 hacia p12; los Reels van de p12 hacia p01. Por eso el banco arranca con coberturas y termina con oficio: cada formato entra por una puerta distinta. Para añadir más, copia un bloque y cámbiale el id. Los títulos de los slides son texto grande: pocas palabras.",
   "piezas": [
     {
       "id": "p01-full-coverage",
       "tema": "El mito de full coverage",
-      "badge": "COVERAGE 101",
+      "badge": "COBERTURA 101",
       "slides": [
-        {"titulo": "\"Full coverage\"\nis not a coverage.", "sub": "It's a phrase. And it's why you think you have things you never bought.", "dato": "MYTH"},
-        {"titulo": "No policy\nsays it.", "sub": "Open your declarations page. The words are not there. Nobody at the carrier uses them either."},
-        {"titulo": "Coverages are\nsold separately.", "sub": "Liability. Comprehensive. Collision. Uninsured motorist. Rental. Each one is a line you either bought or you didn't.", "dato": "5+"},
-        {"titulo": "What people\nusually mean.", "sub": "Liability + comprehensive + collision. That's it. It leaves out rental, uninsured motorist and medical."},
-        {"titulo": "Go read\nyour dec page.", "sub": "If a coverage isn't listed with a limit next to it, you don't have it.", "dato": "→"}
+        {"titulo": "\"Full coverage\"\nno existe.", "sub": "Es una frase de vendedor. No aparece en tu póliza.", "dato": "MITO"},
+        {"titulo": "Nadie te vendió\n\"todo\".", "sub": "Te vendieron coberturas sueltas. Cada una con su nombre y su límite.", "dato": "0"},
+        {"titulo": "Van por\nseparado.", "sub": "Liability. Comprehensive. Collision. Uninsured motorist. Rental. Cada una se compra aparte.", "dato": "5+"},
+        {"titulo": "Lo que crees\nque cubre.", "sub": "La mayoría piensa: liability, comprehensive y collision. Y ahí se acaba.", "dato": "3"},
+        {"titulo": "Abre tu\ndec page.", "sub": "Si una cobertura no está en la lista con un límite al lado, no la tienes.", "dato": "→"}
       ],
-      "caption": "\"Full coverage\" isn't a product. It's a phrase people use for liability + comprehensive + collision — and it leaves out the coverages that matter most when something goes wrong.\n\nPull up your declarations page. If a coverage isn't listed with a limit next to it, you don't have it.\n\nSave this for the next time someone tells you they're \"fully covered.\"\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#autoinsurance", "#insurance101", "#carinsurance", "#insuranceclaims", "#policyholder"]
+      "caption": "\"Full coverage\" no es un producto. Es una frase, y por eso tanta gente cree que tiene cosas que nunca compró.\n\nTu póliza es una lista de coberturas separadas, cada una con su propio límite. Si una no aparece en tu página de declaraciones con un número al lado, no la tienes.\n\nAbre tu dec page. Es una hoja. La próxima vez que alguien te diga \"tienes full coverage\", vas a saber qué preguntarle.\n\nSolo educativo. No es asesoría legal ni de seguros. Las coberturas varían según póliza, endoso, aseguradora y estado.",
+      "hashtags": ["#segurodeauto", "#poliza", "#coberturas", "#seguros", "#hispanosenusa"]
     },
     {
       "id": "p02-deducible",
       "tema": "Nadie elige un deducible, elige un precio",
-      "badge": "COVERAGE 101",
+      "badge": "COBERTURA 101",
       "slides": [
-        {"titulo": "Nobody chooses\na deductible.", "sub": "They choose a lower price. The deductible is what they gave up in exchange.", "dato": "$?"},
-        {"titulo": "That's the\nwhole trade.", "sub": "Higher deductible, lower premium. You saved a little every month and agreed to pay a lot on one bad day."},
-        {"titulo": "$500 vs $2,000", "sub": "The savings look small each month. The gap shows up all at once, when you can least plan for it.", "dato": "4x"},
-        {"titulo": "It only touches\nyour own car.", "sub": "Comprehensive and collision. Liability has no deductible at all."},
-        {"titulo": "Know your\nnumber.", "sub": "If you can't say your deductible from memory, you didn't choose it. You accepted it.", "dato": "→"}
+        {"titulo": "Nadie elige\nun deducible.", "sub": "Eligen el pago mensual más barato. El deducible viene de regalo.", "dato": "$?"},
+        {"titulo": "Es lo que\nentregaste.", "sub": "El deducible es la parte del daño que aceptaste pagar tú, a cambio de pagar menos al mes.", "dato": "$1000"},
+        {"titulo": "$500 contra\n$1,000.", "sub": "El ahorro se ve chico cada mes. El hueco se ve entero el día del choque.", "dato": "2x"},
+        {"titulo": "Solo aplica\na tu carro.", "sub": "Comprehensive y collision: las coberturas que reparan tu vehículo.", "dato": "1"},
+        {"titulo": "¿Sabes\nel tuyo?", "sub": "Si no lo sabes de memoria, alguien lo eligió por ti.", "dato": "→"}
       ],
-      "caption": "Most people don't pick a deductible. They pick a cheaper premium, and the deductible is what they traded away for it.\n\nIt only applies to damage to your own car — comprehensive and collision. Liability has no deductible.\n\nDo you know yours without looking?\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#deductible", "#autoinsurance", "#carinsurance", "#insurance101", "#insuranceclaims"]
+      "caption": "La mayoría de la gente no escoge un deducible. Escoge una prima más barata, y el deducible es lo que entregó a cambio sin darse cuenta.\n\nSolo aplica a los daños de tu propio carro: comprehensive y collision. La liability no tiene deducible.\n\n¿Sabes cuánto es el tuyo, sin mirar?\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#deducible", "#segurodeauto", "#poliza", "#coberturas", "#segurosenespanol"]
     },
     {
-      "id": "p03-turo",
-      "tema": "Listar el carro en apps de alquiler",
-      "badge": "COVERAGE 101",
+      "id": "p03-reparto",
+      "tema": "Reparto y rideshare: el periodo 1",
+      "badge": "COBERTURA 101",
       "slides": [
-        {"titulo": "You listed\nyour car for rent.", "sub": "Your personal policy may have stopped covering it the moment you did.", "dato": "⚠"},
-        {"titulo": "Two exclusions,\nnot one.", "sub": "Renting your vehicle to others is excluded. So is any paid use of your car. Most policies carry both."},
-        {"titulo": "The platform's\nplan is not your policy.", "sub": "It covers what its terms say it covers, for as long as the rental period runs. Nothing before, nothing after."},
-        {"titulo": "Read which plan\nyou picked.", "sub": "On the highest-earning tier, the owner absorbs physical damage to their own vehicle.", "dato": "$0"},
-        {"titulo": "Ask before\nyou list.", "sub": "Call your carrier and ask what happens if a renter crashes your car. Get the answer before you need it.", "dato": "→"}
+        {"titulo": "Prendiste\nla app.", "sub": "Tu póliza personal puede haber dejado de cubrirte en ese momento.", "dato": "⚠"},
+        {"titulo": "Son tres\nperiodos.", "sub": "App prendida esperando. En camino a recoger. Con pasajero o pedido a bordo.", "dato": "3"},
+        {"titulo": "El periodo 1\nes el hueco.", "sub": "App prendida, sin viaje asignado. Ahí la póliza personal suele excluir, y la cobertura de la plataforma es la más delgada.", "dato": "1"},
+        {"titulo": "Existe un\nendoso.", "sub": "Muchas aseguradoras lo venden. Suele costar pocos dólares al mes. Hay que pedirlo por nombre.", "dato": "$"},
+        {"titulo": "Llama y\npregunta.", "sub": "Di para qué usas el carro y pregunta qué cubre en cada periodo. Antes, no después.", "dato": "→"}
       ],
-      "caption": "Renting out your own car on a car-sharing app can put you outside your personal auto policy — most contain an exclusion for vehicles rented to others, and another for any paid use.\n\nThe platform's own plan only covers what its terms say, during the rental. And on the highest-earning tier, the owner can absorb the damage.\n\nAsk your carrier before you list, not after.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#carsharing", "#autoinsurance", "#insurance101", "#sidehustle", "#carinsurance"]
+      "caption": "Manejar para una app de reparto o de pasajeros parte tu día en tres periodos, y no estás cubierto igual en los tres.\n\nEl periodo 1 (app prendida, sin viaje asignado) es donde las pólizas personales suelen excluir y donde la cobertura de la plataforma es más delgada.\n\nLa mayoría de aseguradoras venden un endoso para esto. Suele costar poco. Hay que pedirlo por su nombre.\n\nSolo educativo. No es asesoría legal ni de seguros. Revisa tu propia póliza y pregunta a tu aseguradora por tu caso.",
+      "hashtags": ["#rideshare", "#delivery", "#segurodeauto", "#coberturas", "#trabajoconapps"]
     },
     {
-      "id": "p04-delivery",
-      "tema": "La app de reparto y el periodo 1",
-      "badge": "COVERAGE 101",
+      "id": "p04-limites",
+      "tema": "25/50/25 y el tercer número",
+      "badge": "COBERTURA 101",
       "slides": [
-        {"titulo": "You turned\nthe app on.", "sub": "Your personal policy may have stopped covering you right then.", "dato": "⚠"},
-        {"titulo": "Three periods.", "sub": "App on, waiting. Heading to pick up. Passenger or order in the car. They are not covered the same way."},
-        {"titulo": "Period 1 is\nthe hole.", "sub": "App on, no job assigned. Personal policy often excludes it. Platform coverage is at its thinnest.", "dato": "1"},
-        {"titulo": "There is\nan endorsement.", "sub": "Most carriers sell a rideshare or delivery add-on. It usually costs a few dollars a month."},
-        {"titulo": "Ask for it\nby name.", "sub": "Tell your agent you drive for an app and ask what covers you in period one.", "dato": "→"}
+        {"titulo": "25 / 50 / 25", "sub": "Tres números en tu tarjeta que deciden todo. El tercero es el que arruina gente.", "dato": "3"},
+        {"titulo": "Primero:\npor persona.", "sub": "Lo máximo que paga la póliza por una sola persona lesionada.", "dato": "25K"},
+        {"titulo": "Segundo:\npor accidente.", "sub": "Lo máximo por todos los lesionados juntos. Dos heridos, y se reparte.", "dato": "50K"},
+        {"titulo": "Tercero:\npropiedad.", "sub": "El carro del otro. Un vehículo moderno pasa ese número sin esfuerzo.", "dato": "25K"},
+        {"titulo": "Arriba del\nlímite, tuyo.", "sub": "La póliza se detiene en su número. El resto no desaparece: deja de ser de la aseguradora.", "dato": "→"}
       ],
-      "caption": "Driving for a delivery or rideshare app splits your day into three periods, and they are not covered the same way.\n\nPeriod 1 — app on, no job assigned — is where personal policies commonly exclude and platform coverage is thinnest.\n\nMost carriers sell an endorsement that closes it, usually for a few dollars a month. Ask for it by name.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#rideshare", "#delivery", "#autoinsurance", "#gigeconomy", "#insurance101"]
+      "caption": "25/50/25 significa $25,000 por persona lesionada, $50,000 por accidente, $25,000 para la propiedad del otro.\n\nEl tercero es el que atrapa a la gente. Un vehículo nuevo pasa los $25,000 con facilidad, y arriba de ese límite la diferencia es tuya.\n\nMira tus tres números. La mayoría nunca los ha mirado.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#limites", "#liability", "#segurodeauto", "#coberturas", "#segurosenespanol"]
     },
     {
-      "id": "p05-deducible-liability",
-      "tema": "El deducible no aplica a liability",
-      "badge": "COVERAGE 101",
+      "id": "p05-um-uim",
+      "tema": "UM/UIM: cuando el otro no tiene nada",
+      "badge": "COBERTURA 101",
       "slides": [
-        {"titulo": "At fault?\nYou don't pay\na deductible.", "sub": "Not for the other driver's car. That's not how liability works.", "dato": "$0"},
-        {"titulo": "Deductibles live\non your car only.", "sub": "Comprehensive and collision. Those are the coverages that repair your vehicle."},
-        {"titulo": "Liability pays\nthe other side.", "sub": "Their car, their injuries. No deductible, up to your limit."},
-        {"titulo": "Two different\njobs.", "sub": "One coverage protects your car. The other protects everyone else from you.", "dato": "2"},
-        {"titulo": "That's the\nwhole structure.", "sub": "Once you see it, the rest of the policy stops being confusing.", "dato": "→"}
+        {"titulo": "Te choca\ny no tiene.", "sub": "Ni póliza, ni límites suficientes. Pasa más de lo que crees.", "dato": "UM"},
+        {"titulo": "Uninsured:\nno tiene nada.", "sub": "Te pegan y detrás no hay nadie que responda.", "dato": "0"},
+        {"titulo": "Underinsured:\nno alcanza.", "sub": "Tiene el mínimo del estado. Tus cuentas son más grandes que su límite.", "dato": "MIN"},
+        {"titulo": "Es la primera\nque cortan.", "sub": "Cuando alguien quiere bajar la prima, esta es la que quita. Y es la que cubre lo que no controlas.", "dato": "1ra"},
+        {"titulo": "Mira antes\nde cortarla.", "sub": "Es de las líneas más baratas de la póliza.", "dato": "→"}
       ],
-      "caption": "If you cause a crash, you don't pay a deductible for the other driver's car. Liability coverage has no deductible.\n\nDeductibles only exist on the coverages that repair your own vehicle — comprehensive and collision.\n\nOne coverage protects your car. The other protects everyone else from you. That's the whole structure.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#autoinsurance", "#liability", "#insurance101", "#carinsurance", "#insuranceclaims"]
+      "caption": "Uninsured motorist paga cuando el que te chocó no tiene póliza. Underinsured paga cuando sí tiene, pero su límite es más chico que tus cuentas.\n\nMuchísimos conductores cargan exactamente el mínimo de su estado y nada más. Eso es lo que UM/UIM cubre.\n\nEs una de las líneas más baratas de la póliza, y la primera que la gente corta para ahorrar.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#uninsuredmotorist", "#umuim", "#segurodeauto", "#coberturas", "#segurosenespanol"]
     },
     {
       "id": "p06-simbolos",
-      "tema": "Símbolos de autos cubiertos en póliza comercial",
-      "badge": "COMMERCIAL",
+      "tema": "Los símbolos de la póliza comercial",
+      "badge": "COMERCIAL",
       "slides": [
-        {"titulo": "One digit decides\nwhich vehicles\nare covered.", "sub": "It's on every commercial auto policy. Most owners have never looked at it.", "dato": "1–9"},
-        {"titulo": "Symbol 1\n= any auto.", "sub": "The broadest. Owned, hired, borrowed — all of it."},
-        {"titulo": "Symbol 7\n= only what's listed.", "sub": "If a vehicle isn't on the schedule, it isn't covered. Buy a truck and forget to add it, and you have nothing.", "dato": "7"},
-        {"titulo": "Symbols 8 and 9.", "sub": "Hired autos. Non-owned autos — like your employee's own car, on your errand."},
-        {"titulo": "Go look at\nyour dec page.", "sub": "The symbols sit next to each coverage. They decide everything else on the page.", "dato": "→"}
+        {"titulo": "Un dígito\ndecide todo.", "sub": "Está en toda póliza comercial de auto. Casi ningún dueño lo ha mirado.", "dato": "1-9"},
+        {"titulo": "Símbolo 1:\ncualquier auto.", "sub": "El más amplio. Propios, rentados, prestados. Todo.", "dato": "1"},
+        {"titulo": "Símbolo 7:\nsolo la lista.", "sub": "Si un vehículo no está en la lista, no está cubierto. Compras una troca y se te olvida avisar: no tienes nada.", "dato": "7"},
+        {"titulo": "8 y 9:\nde otros.", "sub": "Autos rentados y autos no propios. Como el carro de tu empleado haciendo un mandado tuyo.", "dato": "8·9"},
+        {"titulo": "Mira tu\ndec page.", "sub": "Los símbolos están al lado de cada cobertura. Deciden todo antes que nada.", "dato": "→"}
       ],
-      "caption": "Every commercial auto policy has a single digit that decides which vehicles the policy even applies to. Symbol 1 is any auto. Symbol 7 is only the vehicles listed on the schedule. Symbols 8 and 9 cover hired and non-owned autos.\n\nA business on symbol 7 that sends an employee out in their own car has a gap it doesn't know about.\n\nCheck the symbols on your declarations page.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#commercialauto", "#smallbusiness", "#insurance101", "#riskmanagement", "#businessowner"]
+      "caption": "Toda póliza comercial de auto tiene un dígito que decide a qué vehículos aplica siquiera.\n\nSímbolo 1 es cualquier auto. Símbolo 7 es solo los vehículos de la lista. Los símbolos 8 y 9 cubren autos rentados y no propios, como el carro de tu empleado cuando lo mandas a hacer algo.\n\nUn negocio con símbolo 7 que manda a un empleado en su propio carro tiene un hueco que no sabe que tiene.\n\nRevisa los símbolos de tu página de declaraciones.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#segurocomercial", "#negociopropio", "#comercialauto", "#coberturas", "#pequenoempresario"]
     },
     {
-      "id": "p07-comp-collision",
-      "tema": "Comprehensive vs collision",
-      "badge": "COVERAGE 101",
+      "id": "p07-que-hace-adjuster",
+      "tema": "Quién decide cuánto paga tu póliza",
+      "badge": "EL OFICIO",
       "slides": [
-        {"titulo": "A deer is\ncomprehensive.\nA tree is collision.", "sub": "Same car. Same damage. Two different coverages.", "dato": "2"},
-        {"titulo": "Collision\n= impact.", "sub": "You hit something, or something hits you. Applies even when the fault is yours."},
-        {"titulo": "Comprehensive\n= everything else.", "sub": "Theft. Hail. Fire. Flood. Vandalism. Glass. Animals."},
-        {"titulo": "Each has its own\ndeductible.", "sub": "They're separate coverages, priced separately, and you can carry one without the other.", "dato": "$"},
-        {"titulo": "Which one\ndo you have?", "sub": "Check your dec page. They're listed on separate lines, with separate numbers.", "dato": "→"}
+        {"titulo": "Alguien decide\ncuánto pagan.", "sub": "Después de cada choque, una persona lee la póliza y decide. Ese trabajo tiene nombre.", "dato": "?"},
+        {"titulo": "Claims\nadjuster.", "sub": "Ajustador de reclamos. La mayoría de la gente no sabe que existe.", "dato": "→"},
+        {"titulo": "El trabajo\nes la póliza.", "sub": "Leerla, entenderla y aplicarla a lo que de verdad pasó.", "dato": "1"},
+        {"titulo": "Todo esto\nes ese oficio.", "sub": "Cada cosa que publico aquí es conocimiento del trabajo. No es coincidencia.", "dato": "✓"},
+        {"titulo": "Es una\ncarrera.", "sub": "Una licencia, algo de entrenamiento y una primera asignación. En casi todos los estados no piden título universitario.", "dato": "↗"}
       ],
-      "caption": "Hit a deer, that's comprehensive. Hit a tree, that's collision. Same car, same damage, two different coverages with two different deductibles.\n\nCollision is impact. Comprehensive is everything else that happens to your car — theft, hail, fire, flood, vandalism, glass, animals.\n\nThey're separate lines on your policy. You can carry one without the other.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#comprehensive", "#collision", "#autoinsurance", "#insurance101", "#carinsurance"]
+      "caption": "Después de casi cada choque en este país, alguien lee la póliza y decide qué se paga. Ese trabajo se llama claims adjuster.\n\nEl oficio es conocimiento de coberturas, que es exactamente lo que publico en esta cuenta.\n\nSi el trabajo suena interesante, el camino está en el enlace de la bio.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#adjuster", "#ajustadordereclamos", "#carreras", "#seguros", "#trabajoenusa"]
     },
     {
-      "id": "p08-limites",
-      "tema": "25/50/25 y el tercer número",
-      "badge": "COVERAGE 101",
+      "id": "p08-bilingue",
+      "tema": "Ser bilingüe en este trabajo",
+      "badge": "EL OFICIO",
       "slides": [
-        {"titulo": "25 / 50 / 25", "sub": "Three numbers on your card that decide everything. The third one is the one that ruins people.", "dato": "3"},
-        {"titulo": "First: per person.", "sub": "The most the policy pays for any one injured person."},
-        {"titulo": "Second: per accident.", "sub": "The most it pays for everyone injured, in total. Two people hurt, and it splits."},
-        {"titulo": "Third: property.", "sub": "The other driver's car. A modern vehicle can pass that number without trying.", "dato": "25K"},
-        {"titulo": "Above the limit,\nit's you.", "sub": "The policy stops at its number. The rest doesn't disappear — it just isn't the carrier's anymore.", "dato": "→"}
+        {"titulo": "Hablas dos\nidiomas.", "sub": "En este oficio eso no es un extra. Es una ventaja que se paga.", "dato": "2"},
+        {"titulo": "Los reclamos\nno son en inglés.", "sub": "Asegurados, testigos, talleres, terceros. Mucha de esa gente habla español.", "dato": "→"},
+        {"titulo": "Un intermediario\ncuesta.", "sub": "Cada llamada con intérprete es más lenta y más cara. Quien no lo necesita vale más.", "dato": "$"},
+        {"titulo": "Se nota\nen la carga.", "sub": "Los reclamos en español se asignan a quien los puede trabajar directo.", "dato": "✓"},
+        {"titulo": "Ya tienes\nla mitad.", "sub": "Lo que falta es la licencia. Eso se estudia.", "dato": "↗"}
       ],
-      "caption": "25/50/25 means $25,000 per injured person, $50,000 per accident, $25,000 for the other party's property.\n\nThe third number is the one that catches people. A modern vehicle can exceed $25,000 without much effort — and above the limit, the difference is yours.\n\nCheck your three numbers. Most people have never looked.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#autoinsurance", "#liability", "#insurance101", "#carinsurance", "#coverage"]
+      "caption": "En el trabajo de adjuster, hablar español no es un detalle del currículum. Los reclamos llegan en el idioma en que la gente vive, y una buena parte de ellos llegan en español.\n\nCada llamada que necesita intérprete es más lenta y cuesta más. Quien puede trabajar el reclamo directo hace más y hace mejor.\n\nSi ya hablas los dos idiomas, tienes la mitad de algo que se puede convertir en carrera.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#bilingue", "#adjuster", "#carreras", "#trabajoenusa", "#hispanosenusa"]
     },
     {
-      "id": "p09-pip-medpay",
-      "tema": "PIP vs Med Pay",
-      "badge": "COVERAGE 101",
+      "id": "p09-licencia",
+      "tema": "No necesitas título, necesitas licencia",
+      "badge": "EL OFICIO",
       "slides": [
-        {"titulo": "PIP pays\nno matter\nwhose fault it was.", "sub": "So does Med Pay. They are not the same thing.", "dato": "PIP"},
-        {"titulo": "PIP is broader.", "sub": "Medical bills, and often lost wages and some services while you recover."},
-        {"titulo": "Med Pay is\nnarrower.", "sub": "Medical bills only. Usually a smaller limit."},
-        {"titulo": "Your state\ndecides.", "sub": "Some require PIP. Some offer Med Pay as an option. Some have neither.", "dato": "50"},
-        {"titulo": "Check which\nyou have.", "sub": "It's on your dec page, and it's the coverage that pays first after a crash.", "dato": "→"}
+        {"titulo": "No pide\nuniversidad.", "sub": "En la mayoría de los estados, para ser adjuster no te piden título.", "dato": "0"},
+        {"titulo": "Pide\nlicencia.", "sub": "La emite el departamento de seguros de tu estado.", "dato": "→"},
+        {"titulo": "Cada estado\nes distinto.", "sub": "Unos exigen examen. Otros no licencian adjusters. Otros aceptan una licencia de fuera.", "dato": "50"},
+        {"titulo": "El examen\nse estudia.", "sub": "Es material que se aprende. No es un título de cuatro años.", "dato": "✓"},
+        {"titulo": "Empieza por\ntu estado.", "sub": "Busca el departamento de seguros de tu estado y mira qué pide para adjuster.", "dato": "↗"}
       ],
-      "caption": "PIP and Med Pay both pay regardless of who caused the crash — but they're not the same coverage.\n\nPIP is broader: medical bills plus, often, lost wages. Med Pay is medical bills only, usually with a smaller limit.\n\nWhich one you can even buy depends on your state. Check your declarations page.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#pip", "#autoinsurance", "#insurance101", "#carinsurance", "#insuranceclaims"]
+      "caption": "La barrera para entrar a este oficio no es un título universitario. En la mayoría de los estados es una licencia estatal.\n\nY no es igual en todas partes: hay estados con examen, estados que no licencian adjusters, y estados que reconocen una licencia obtenida en otro.\n\nEl primer paso real es mirar qué pide el departamento de seguros de tu propio estado.\n\nSolo educativo. No es asesoría legal ni de seguros. Verifica los requisitos con tu departamento de seguros estatal.",
+      "hashtags": ["#adjuster", "#licencia", "#carreras", "#seguros", "#trabajoenusa"]
     },
     {
-      "id": "p10-rental",
-      "tema": "Rental reimbursement vs loss of use",
-      "badge": "COVERAGE 101",
+      "id": "p10-tipos",
+      "tema": "Los tres tipos de adjuster",
+      "badge": "EL OFICIO",
       "slides": [
-        {"titulo": "Rental reimbursement\nand loss of use\nare not the same.", "sub": "Buying the wrong one is why people end up paying for the rental car themselves.", "dato": "2"},
-        {"titulo": "Rental reimbursement\nis yours.", "sub": "A coverage you bought on your own policy. It has a daily cap and a total cap."},
-        {"titulo": "Loss of use\nis theirs.", "sub": "What the at-fault driver's carrier owes you while your car is being repaired."},
-        {"titulo": "$30/day,\n$900 max.", "sub": "Typical caps. If the shop takes six weeks and the rental costs more per day, the gap is yours.", "dato": "$30"},
-        {"titulo": "Know which one\napplies.", "sub": "It depends on who caused the crash. Ask before you drive off the rental lot.", "dato": "→"}
+        {"titulo": "No todos\nson iguales.", "sub": "Tres tipos, tres trabajos distintos, tres formas de vivir.", "dato": "3"},
+        {"titulo": "Staff:\nde la compañía.", "sub": "Empleado de la aseguradora. Sueldo, beneficios, carga constante.", "dato": "1"},
+        {"titulo": "Independiente:\npor contrato.", "sub": "Trabaja para varias compañías a través de firmas. Sube y baja con el trabajo que hay.", "dato": "2"},
+        {"titulo": "Público:\ndel asegurado.", "sub": "Contratado por el asegurado, no por la aseguradora. Otro lado de la mesa, otra licencia.", "dato": "3"},
+        {"titulo": "Elige\nsabiendo.", "sub": "El título dice adjuster en los tres. La vida diaria no se parece.", "dato": "→"}
       ],
-      "caption": "Rental reimbursement is a coverage you buy on your own policy, with a daily cap and a total cap. Loss of use is what the at-fault driver's carrier owes you while your car is in the shop.\n\nDifferent things, different payers. Which one applies depends on who caused the crash.\n\nAsk before you drive off the rental lot.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#rentalcar", "#autoinsurance", "#insurance101", "#insuranceclaims", "#carinsurance"]
+      "caption": "Adjuster de staff: empleado de la aseguradora, con sueldo y carga estable.\n\nAdjuster independiente: trabaja por contrato para varias compañías a través de firmas. El volumen sube y baja.\n\nPublic adjuster: lo contrata el asegurado, no la aseguradora. Es el otro lado de la mesa y en muchos estados requiere su propia licencia.\n\nLa palabra es la misma en los tres. El trabajo no.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#adjuster", "#carreras", "#seguros", "#trabajoenusa", "#empleo"]
     },
     {
-      "id": "p11-um-uim",
-      "tema": "UM/UIM",
-      "badge": "COVERAGE 101",
+      "id": "p11-como-pagan",
+      "tema": "Cómo se le paga a un adjuster",
+      "badge": "EL OFICIO",
       "slides": [
-        {"titulo": "The coverage\nthat pays when\nthey have nothing.", "sub": "Uninsured and underinsured motorist. It's the first one people drop to save money.", "dato": "UM"},
-        {"titulo": "Uninsured:\nno policy at all.", "sub": "They hit you and there's nothing behind them."},
-        {"titulo": "Underinsured:\nnot enough.", "sub": "They carry the state minimum. Your bills are larger than their limit."},
-        {"titulo": "This is\nthe common one.", "sub": "Plenty of drivers carry exactly the minimum their state requires. Nothing more.", "dato": "MIN"},
-        {"titulo": "Look before\nyou cut it.", "sub": "It's the cheapest line on many policies, and the one that covers what you can't control.", "dato": "→"}
+        {"titulo": "¿Sueldo o\npor reclamo?", "sub": "Depende de qué tipo de adjuster seas. Y cambia toda tu vida.", "dato": "?"},
+        {"titulo": "Staff:\nsueldo.", "sub": "Pago fijo, beneficios, vacaciones. Y una carga de reclamos que no para.", "dato": "1"},
+        {"titulo": "Independiente:\npor reclamo.", "sub": "Cobras por cada reclamo cerrado, según una escala. Más volumen, más ingreso.", "dato": "2"},
+        {"titulo": "Tormenta:\npor temporada.", "sub": "Cuando pega un huracán o granizo se llama gente para el despliegue. Meses intensos, luego nada.", "dato": "⛈"},
+        {"titulo": "Sábelo\nantes.", "sub": "Mucha gente entra por lo que oyó de la temporada de tormentas sin ver el resto del año.", "dato": "→"}
       ],
-      "caption": "Uninsured motorist pays when the driver who hit you has no policy. Underinsured pays when they have one, but their limit is smaller than your bills.\n\nPlenty of drivers carry exactly the state minimum and nothing more. That's what UM/UIM is for.\n\nIt's often one of the cheapest lines on the policy — and the first one people cut.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#uninsuredmotorist", "#autoinsurance", "#insurance101", "#carinsurance", "#coverage"]
+      "caption": "A un adjuster de staff se le paga sueldo. A un independiente se le paga por reclamo cerrado, según una escala de honorarios. Y en temporada de tormentas se contrata gente para desplegar, que es trabajo intenso por unos meses y después se acaba.\n\nSon tres economías distintas. Vale la pena entenderlas antes de elegir por cuál entrar.\n\nSolo educativo. No es asesoría legal ni de seguros.",
+      "hashtags": ["#adjuster", "#carreras", "#seguros", "#trabajoenusa", "#ingresos"]
     },
     {
-      "id": "p12-adjuster",
-      "tema": "Qué hace un adjuster",
-      "badge": "THE DESK",
+      "id": "p12-por-donde-empezar",
+      "tema": "Por dónde se empieza de verdad",
+      "badge": "EL OFICIO",
       "slides": [
-        {"titulo": "Someone decides\nwhat your policy\npays.", "sub": "That job is called a claims adjuster. Most people have never heard of it.", "dato": "?"},
-        {"titulo": "The job is\nthe coverage.", "sub": "Reading the policy, applying it to what happened, and putting a number on it."},
-        {"titulo": "Everything\non this account.", "sub": "Every post here is the knowledge the job runs on. That's not a coincidence."},
-        {"titulo": "It's a career\nwith a door.", "sub": "A license, some training, and a first assignment. No degree required in most states.", "dato": "→"},
-        {"titulo": "Curious?", "sub": "The path is in the link in bio.", "dato": "↗"}
+        {"titulo": "¿Por dónde\nse empieza?", "sub": "No por comprar el curso más caro que te salga en un anuncio.", "dato": "→"},
+        {"titulo": "Uno:\ntu estado.", "sub": "Mira qué exige tu departamento de seguros. Eso decide todo lo demás.", "dato": "1"},
+        {"titulo": "Dos:\nla licencia.", "sub": "Si tu estado la pide, estudias y presentas. Si no la pide, mira la de un estado vecino.", "dato": "2"},
+        {"titulo": "Tres:\nla primera puerta.", "sub": "Muchos entran por call center de reclamos o por una firma de independientes. No es glamoroso. Es la puerta.", "dato": "3"},
+        {"titulo": "Cuatro:\nel idioma.", "sub": "Si hablas español, dilo en cada solicitud. Es lo que te separa de la pila.", "dato": "✓"}
       ],
-      "caption": "After almost every crash in America, someone reads the policy and decides what it pays. That job is a claims adjuster.\n\nThe job is coverage knowledge — which is what every post on this account is.\n\nIf the work sounds interesting, the path to it is in the link in bio.\n\nEducational only. Not legal or insurance advice.",
-      "hashtags": ["#claimsadjuster", "#insurancecareers", "#careerchange", "#insurance101", "#adjusterlife"]
+      "caption": "El orden real: primero mira qué pide el departamento de seguros de tu estado, porque no es igual en todas partes. Después la licencia si tu estado la exige. Después la primera puerta, que suele ser un call center de reclamos o una firma de independientes.\n\nY si hablas español, ponlo en cada solicitud. En este oficio es una ventaja concreta, no un detalle.\n\nSolo educativo. No es asesoría legal ni de seguros. Verifica los requisitos con tu departamento de seguros estatal.",
+      "hashtags": ["#adjuster", "#carreras", "#primerempleo", "#trabajoenusa", "#hispanosenusa"]
     }
   ]
 }
