@@ -1,0 +1,254 @@
+# Your Coverage Desk — carruseles y Reels, automáticos.
+#
+# Calendario:
+#   Lunes, miércoles, viernes  →  carrusel   (banco de p01 hacia adelante)
+#   Martes y jueves            →  Reel       (banco de p12 hacia atrás)
+#   Lunes por la mañana        →  refrescar el token
+#
+# Van al revés a propósito: así la misma pieza nunca sale como carrusel y como
+# Reel en la misma semana.
+
+name: Publicar carrusel
+
+on:
+  schedule:
+    - cron: "23 15 * * 1,3,5"   # carrusel, 11:23 ET
+    - cron: "23 16 * * 2,4"     # Reel, 12:23 ET
+    - cron: "41 13 * * 1"       # refrescar token
+  workflow_dispatch:
+    inputs:
+      formato:
+        description: "carrusel o reel"
+        required: false
+        default: carrusel
+        type: choice
+        options: [carrusel, reel]
+      pieza:
+        description: "id de una pieza concreta (opcional)"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  carrusel:
+    if: >-
+      github.event.schedule == '23 15 * * 1,3,5' ||
+      (github.event_name == 'workflow_dispatch' && inputs.formato == 'carrusel')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet Pillow
+      - name: Verificar configuración
+        run: python check_setup.py
+      - name: Dibujar los slides
+        id: build
+        run: |
+          if [ -n "${{ inputs.pieza }}" ]; then
+            python build_carrusel.py --out build --pieza "${{ inputs.pieza }}"
+          else
+            python build_carrusel.py --out build
+          fi
+          echo "id=$(python -c "import json;print(json.load(open('build/pieza.json'))['id'])")" >> $GITHUB_OUTPUT
+      # Las Releases de GitHub dejaron de servir los archivos con su tipo real:
+      # ahora salen como application/octet-stream y en modo "attachment", e
+      # Instagram los rechaza (error 2207052). Los slides se publican como
+      # archivos del repo, que raw.githubusercontent si sirve como image/jpeg.
+      - name: Publicar los slides en el repo
+        id: media
+        run: |
+          set -e
+          TAG="post-$(date +%Y%m%d-%H%M)"
+          DIR="media/$TAG"
+          mkdir -p "$DIR"
+          cp build/slide_*.jpg "$DIR"/
+          git config user.name "coverage-desk-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add "$DIR"
+          git commit -m "media carrusel $TAG"
+          git push
+          BASE="https://raw.githubusercontent.com/${{ github.repository }}/main/$DIR"
+          URLS=""
+          for f in $(ls build/slide_*.jpg | sort); do
+            URLS="$URLS $BASE/$(basename $f)"
+          done
+          echo "urls=$URLS" >> $GITHUB_OUTPUT
+          echo "dir=$DIR" >> $GITHUB_OUTPUT
+
+      # Antes de gastar la pieza, comprobamos que Instagram va a poder leerla.
+      # Si el tipo no es una imagen, paramos aqui en vez de fallar a medias.
+      - name: Comprobar que Instagram podra leer los slides
+        run: |
+          set -e
+          for U in ${{ steps.media.outputs.urls }}; do
+            CT=""
+            for i in $(seq 1 15); do
+              CT=$(curl -sSL -o /dev/null -w '%{content_type}' "$U" || true)
+              case "$CT" in image/*) break ;; esac
+              sleep 4
+            done
+            case "$CT" in
+              image/*) echo "ok  $(basename $U)  ->  $CT" ;;
+              *) echo "::error::$U no se sirve como imagen (content-type: $CT)"; exit 1 ;;
+            esac
+          done
+
+      - name: Publicar en Instagram
+        run: python publish_ig.py --urls ${{ steps.media.outputs.urls }} --caption-file build/caption.txt
+      - name: Marcar como publicada
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("contenido/estado.json")
+          if not p.exists(): p = pathlib.Path("estado.json")
+          e = json.loads(p.read_text())
+          pid = json.load(open("build/pieza.json"))["id"]
+          e.setdefault("publicadas", [])
+          if pid not in e["publicadas"]: e["publicadas"].append(pid)
+          p.write_text(json.dumps(e, indent=2) + "\n")
+          PY
+          git config user.name "coverage-desk-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # SOLO el archivo de estado. Nunca -A: se llevaría el modelo de voz
+          # (115 MB) y los archivos de build, y GitHub rechaza el push.
+          git add estado.json 2>/dev/null || true
+          git add contenido/estado.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "carrusel ${{ steps.build.outputs.id }}"
+          git push
+
+  reel:
+    if: >-
+      github.event.schedule == '23 16 * * 2,4' ||
+      (github.event_name == 'workflow_dispatch' && inputs.formato == 'reel')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install --quiet Pillow piper-tts
+
+      # El modelo de voz pesa bastante; se cachea para no bajarlo cada vez.
+      - name: Cachear la voz
+        id: cache-voz
+        uses: actions/cache@v4
+        with:
+          path: voces
+          key: piper-es_MX-claude-high-v1
+      - name: Descargar la voz
+        if: steps.cache-voz.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p voces
+          python -m piper.download_voices es_MX-claude-high --download-dir voces
+          ls -la voces
+
+      - name: Verificar configuración
+        run: python check_setup.py
+
+      - name: Construir el Reel
+        id: build
+        run: |
+          VOZ=$(ls voces/*.onnx | head -1)
+          echo "usando voz: $VOZ"
+          if [ -n "${{ inputs.pieza }}" ]; then
+            python build_reel.py --out build_reel --voz "$VOZ" --pieza "${{ inputs.pieza }}"
+          else
+            python build_reel.py --out build_reel --voz "$VOZ"
+          fi
+          echo "id=$(python -c "import json;print(json.load(open('build_reel/pieza.json'))['id'])")" >> $GITHUB_OUTPUT
+
+      # Igual que el carrusel, pero por GitHub Pages: raw.githubusercontent
+      # sirve los .mp4 como application/octet-stream y Pages como video/mp4.
+      - name: Publicar el video en el repo
+        id: media
+        run: |
+          set -e
+          TAG="reel-$(date +%Y%m%d-%H%M)"
+          DIR="media/$TAG"
+          mkdir -p "$DIR"
+          cp build_reel/reel.mp4 build_reel/portada.jpg "$DIR"/
+          git config user.name "coverage-desk-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add "$DIR"
+          git commit -m "media reel $TAG"
+          git push
+          RUTA="${{ github.repository }}"        # duenio/repo
+          BASE="https://${RUTA%%/*}.github.io/${RUTA#*/}/$DIR"
+          echo "video=$BASE/reel.mp4" >> $GITHUB_OUTPUT
+          echo "portada=$BASE/portada.jpg" >> $GITHUB_OUTPUT
+
+      # Pages tarda en desplegar: esperamos hasta ~5 min y exigimos el tipo
+      # correcto antes de llamar a Instagram.
+      - name: Esperar a que Pages sirva el video
+        run: |
+          set -e
+          comprobar () {
+            U="$1"; ESPERADO="$2"; CT=""
+            for i in $(seq 1 50); do
+              CT=$(curl -sSL -o /dev/null -w '%{content_type}' "$U" || true)
+              case "$CT" in $ESPERADO) echo "ok  $(basename $U)  ->  $CT"; return 0 ;; esac
+              sleep 6
+            done
+            echo "::error::$U no se sirve como $ESPERADO (content-type: $CT)"
+            return 1
+          }
+          comprobar "${{ steps.media.outputs.video }}"   "video/*"
+          comprobar "${{ steps.media.outputs.portada }}" "image/*"
+
+      - name: Publicar el Reel
+        run: |
+          python publish_ig.py \
+            --reel "${{ steps.media.outputs.video }}" \
+            --portada "${{ steps.media.outputs.portada }}" \
+            --caption-file build_reel/caption.txt
+
+      - name: Marcar como publicada
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          p = pathlib.Path("contenido/estado.json")
+          if not p.exists(): p = pathlib.Path("estado.json")
+          e = json.loads(p.read_text())
+          pid = json.load(open("build_reel/pieza.json"))["id"]
+          e.setdefault("publicadas_reel", [])
+          if pid not in e["publicadas_reel"]: e["publicadas_reel"].append(pid)
+          p.write_text(json.dumps(e, indent=2) + "\n")
+          PY
+          git config user.name "coverage-desk-bot"
+          git config user.email "bot@users.noreply.github.com"
+          # SOLO el archivo de estado. Nunca -A.
+          git add estado.json 2>/dev/null || true
+          git add contenido/estado.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "reel ${{ steps.build.outputs.id }}"
+          git push
+
+  refrescar-token:
+    if: github.event.schedule == '41 13 * * 1'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python publish_ig.py --refrescar-token
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
